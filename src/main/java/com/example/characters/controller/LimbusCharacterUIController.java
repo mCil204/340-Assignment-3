@@ -30,8 +30,8 @@ public class LimbusCharacterUIController {
 
     @GetMapping("/")
     public String gallery(@RequestParam(required = false) String name,
-                          @RequestParam(required = false) String faction,
-                          Model model) {
+            @RequestParam(required = false) String faction,
+            Model model) {
         model.addAttribute("characters", service.search(name, faction));
         model.addAttribute("name", name);
         model.addAttribute("faction", faction);
@@ -95,12 +95,17 @@ public class LimbusCharacterUIController {
         ra.addFlashAttribute("message", name + " was removed");
         return "redirect:/";
     }
+    
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
 
-    // Applies only to this controller, so the REST API still returns its normal 404
     @ExceptionHandler(ResponseStatusException.class)
     public String notFound(ResponseStatusException e, Model model, HttpServletResponse response) {
         response.setStatus(HttpStatus.NOT_FOUND.value());
-        model.addAttribute("message", e.getReason());
+        model.addAttribute("errorMessage", e.getReason());
         return "error";
     }
+
 }
