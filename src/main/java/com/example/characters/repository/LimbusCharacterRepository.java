@@ -9,4 +9,5 @@ public interface LimbusCharacterRepository extends JpaRepository<LimbusCharacter
 
     List<LimbusCharacter> findByFactionIgnoreCase(String faction);
     List<LimbusCharacter> findByNameContainingIgnoreCase(String name);
+    List<LimbusCharacter> findByNameContainingIgnoreCaseAndFactionIgnoreCase(String name, String faction);
 }
