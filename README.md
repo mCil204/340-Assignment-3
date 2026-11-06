@@ -1,6 +1,6 @@
 # Limbus Company Character API
 
-A RESTful CRUD API for Limbus Company characters.
+A web app for Limbus Company characters from assignment 2 and 3.
 
 
 ## Character Attributes
@@ -41,12 +41,24 @@ A RESTful CRUD API for Limbus Company characters.
   "description": "Designated Sinner #1 of Limbus Company's LCB department. Researcher and Architect.",
   "specialty": "Sinking",
   "faction": "LCB",
-  "imageUrl": "https://example.com/yi-sang.png"
+  "imageUrl": "/images/yi-sang.jpg"
 }
 ```
 
-## Deployed API
+| Route | Description |
+|---|---|
+| GET / | Gallery of all characters. Search by name and filter by faction with `?name=` and `?faction=` (both can be combined) |
+| GET /characters/{id} | Details page for one character, with Edit and Delete buttons |
+| GET /characters/new | Form to add a character |
+| POST /characters | Saves a new character, then redirects to the gallery with a message |
+| GET /characters/{id}/edit | The same form, pre-filled, to edit a character |
+| POST /characters/{id} | Saves the edit, then redirects to the details page with a message |
+| POST /characters/{id}/delete | Deletes the character (after a confirmation prompt), then redirects to the gallery with a message |
+| GET /about | About page |
 
-Base URL: https://three40-3-character-api.onrender.com/api/characters
+
+## Live Site
+
+Base URL: https://three40-3-character-api.onrender.com
 
 **Cold-start note:** This API runs on Render's free tier. The first request after a quiet period can take up to a minute to respond.
