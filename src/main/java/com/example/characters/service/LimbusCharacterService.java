@@ -52,7 +52,7 @@ public class LimbusCharacterService {
         repository.delete(existing);
     }
 
-    public List<LimbusCharacter> search(String name, String faction) {
+public List<LimbusCharacter> search(String name, String faction) {
     boolean hasName = name != null && !name.isBlank();
     boolean hasFaction = faction != null && !faction.isBlank();
 
